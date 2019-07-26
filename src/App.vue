@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <my-aside @open="open = $event.open"></my-aside>
+
+        <div class="main" :class="{open: open}">
+            <router-view :key="$route.fullPath"></router-view>
+        </div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MyAside from './components/Aside';
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+    data () {
+        return {
+            open: true
+        }
+    },
+
+    components: {
+        MyAside
+    }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="less">
+    #app {
+        height: 100%;
+    }
+
+    .main {
+        height: 100%;
+        margin-left: 2em;
+        padding: 2em;
+        transition: all ease-in-out .2s;
+
+        &.open {
+           margin-left: 20em; 
+        }
+    }
 </style>
