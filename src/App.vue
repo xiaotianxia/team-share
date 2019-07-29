@@ -32,7 +32,7 @@ export default {
     .main {
         height: 100%;
         margin-left: 2em;
-        padding: 2em;
+        padding: 3em;
         transition: all ease-in-out .2s;
 
         &.open {

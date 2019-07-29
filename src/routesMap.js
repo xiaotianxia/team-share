@@ -1,8 +1,8 @@
 export default [
     {
-        path: '/audio',
-        title: '音频',
-        component: () => import('./components/audio/Index')
+        path: '/speech-synthesis',
+        title: '语音合成',
+        component: () => import('./components/speech-synthesis/Index')
     },
     {
         path: '/recorder',

@@ -51,10 +51,14 @@ export default {
             right: 0;
             font-size: 22px;
             cursor: pointer;
+
+            i {
+                color: rgba(0, 0, 0, .5);
+            }
         }
         .aside-menus {
             padding: 10px 0;
-            
+
             li {
                 padding: 0 10px;
                 height: 32px;
