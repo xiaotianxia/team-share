@@ -29,7 +29,7 @@
 
             <el-form-item>
                 <el-button :diabled="!!voiceData.length" type="primary" @click="onSpeak">朗读</el-button>
-                <el-button v-show="!voiceData.length" @click="onFresh">刷新</el-button>
+                <el-button v-show="!voiceData.length" @click="onFresh">未获取到语言包，点击刷新</el-button>
             </el-form-item>
         </el-form>
     </div>
@@ -39,14 +39,14 @@
 export default {
     data () {
         return {
-            voiceData: typeof speechSynthesis !== "undefined" && speechSynthesis.getVoices(),
+            voiceData: [],
             queryParams: {
                 voiceURI: 'Ting-Ting',
                 lang: 'zh-CN',
                 volume: 1,
                 pitch: 1,
                 rate: 1,
-                text: '大家好，这里是阿里巴巴智创新业务事业群能营销平台。'
+                text: '大家好，这里是阿里巴巴，创新业务事业群，智能营销平台。'
             },
 
             speechInstance: null,
@@ -62,16 +62,16 @@ export default {
         },
 
         onFresh () {
-            location.reload();
-        },
-
-        onSpeak () {
             this.speechInstance = new SpeechSynthesisUtterance();
             Object.keys(this.queryParams).forEach(key => {
                 this.speechInstance[key] = this.queryParams[key];
             })
 
-            typeof speechSynthesis !== "undefined" && speechSynthesis.speak(this.speechInstance);
+            speechSynthesis.speak(this.speechInstance);
+        },
+
+        onSpeak () {
+            this.onFresh();
         }
     },
 
@@ -79,7 +79,7 @@ export default {
         let timer = setInterval(() => {
             if(!this.voiceData.length) {
                 //获取语言包
-                this.voiceData = typeof speechSynthesis !== "undefined" && speechSynthesis.getVoices();
+                this.voiceData = speechSynthesis.getVoices();
             } else {
                 clearInterval(timer);
             }

@@ -14,7 +14,7 @@ import MyAside from './components/Aside';
 export default {
     data () {
         return {
-            open: true
+            open: false
         }
     },
 
@@ -31,12 +31,13 @@ export default {
 
     .main {
         height: 100%;
-        margin-left: 2em;
+        max-width: 740px;
+        margin-left: calc(50% - 370px - 1em);
         padding: 3em;
         transition: all ease-in-out .2s;
 
         &.open {
-           margin-left: 20em; 
+           margin-left: 15em; 
         }
     }
 </style>

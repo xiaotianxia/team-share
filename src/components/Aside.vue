@@ -17,7 +17,7 @@ import menus from '../routesMap';
 export default {
     data () {
         return {
-            open: true,
+            open: false,
             menus
         }
     },
@@ -36,11 +36,12 @@ export default {
 <style lang="less" scoped>
     .aside {
         position: fixed;
-        width: 20em;
+        width: 15em;
         height: 100%;
-        box-shadow: 2px 0 6px rgba(0,0,0,.5);
-        transform: translateX(-18em);
+        box-shadow: 2px 0 6px rgba(0, 0, 0, .5);
+        transform: translateX(-13em);
         transition: all ease-in-out .2s;
+        z-index: 2000;
 
         &.open {
             transform: translateX(0);
