@@ -23,5 +23,15 @@ export default [
         path: '/connection',
         title: '网络连接',
         component: () => import('./components/connection/Index')
+    }, 
+    {
+        path: '/fullscreen',
+        title: '全屏',
+        component: () => import('./components/fullscreen/Index')
+    },
+    {
+        path: '/notification',
+        title: '桌面通知',
+        component: () => import('./components/notification/Index')
     }
 ];

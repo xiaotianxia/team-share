@@ -12,13 +12,13 @@
 
 		<div v-if="canUseConnection" class="network">
 			<div class="title">
-				<span>当前网络</span>
+				<span>当前连网信息</span>
 				<i class="el-icon-refresh" @click="update"></i>
 			</div>
-			<el-tag type="primary">type: {{connection.type}}</el-tag>
-			<el-tag type="success">downlink: {{connection.downlink}}</el-tag>
-			<el-tag type="info">rtt: {{connection.rtt}}</el-tag>
-			<el-tag type="warning">effectiveType: {{connection.effectiveType}}</el-tag>
+			<el-tag type="primary">类型: {{connection.type}}</el-tag>
+			<el-tag type="success">下行速度/带宽: {{connection.downlink}}Mb/s</el-tag>
+			<el-tag type="info">往返时间: {{connection.rtt}}ms</el-tag>
+			<el-tag type="warning">有效网络连接类型: {{connection.effectiveType}}</el-tag>
 		</div>
 
 		<div v-else class="network">
@@ -133,7 +133,7 @@ export default {
 	}
 	.connection-wrapper .btn {
 		margin-top: 10px;
-	}rgb(92, 98, 107)
+	}
 	.connection-wrapper .linestatus {
 		padding: 40px 0;
 	}
