@@ -14,7 +14,7 @@
                             <div class="audio">说话</div>
                         </li>
 
-                        <li v-for="(item, index) in chunkList" :key="index" class="msg" @click="onPlay(index)" @touchend.prevent="onPlay(index)">
+                        <li v-for="(item, index) in chunkList" :key="item" class="msg" @click="onPlay(index)" @touchend.prevent="onPlay(index)">
                             <div class="avatar"></div>
                             <div class="audio" :style="{width: 20 * item.duration + 'px'}" :class="{wink: item.wink}">
                                 <span>(</span><span>(</span><span>(</span>
@@ -46,11 +46,11 @@ export default {
                 this.recorder = new window.MediaRecorder(stream);
                 this.bindEvents();
             }, error => {
-                alert('出错，请确保已允许浏览器获取录音权限');
+                alert('出错，请确保已允许浏览器获取录音权限', error);
             });
         },
 
-        onMousedown (e) {
+        onMousedown () {
             this.onStart();
             this.btnText = '松开结束';
         },

@@ -1,7 +1,7 @@
 <template>
 	<div class="connection-wrapper">
 		<el-row>
-		  	<el-col :span="24"><div class="info-bg">切换或者断开网络试试？</div></el-col>
+            <el-col :span="24"><div class="info-bg">切换或者断开网络试试？</div></el-col>
 		</el-row>
 		<div class="btn">
 			<el-button size="small" @click="onGetStatus">获取网络连接状态</el-button>
@@ -68,13 +68,11 @@ export default {
 
 		bindEvents () {
 			let self = this;
-			window.addEventListener('online', e => {
-				console.log(e);
+			window.addEventListener('online', () => {
 				self.updateOnlineStatus();
 			});
 
-			window.addEventListener('offline', e => {
-				console.log(e);
+			window.addEventListener('offline', () => {
 				self.updateOnlineStatus();
 			});
 
@@ -91,7 +89,6 @@ export default {
 
 		updateOnlineStatus () {
 			this.online = _navigator.onLine;
-			console.log(this.online);
 			if(this.online) {
 				this.$message.success('有网啦❛‿˂̵✧');
 			} else {
@@ -100,11 +97,10 @@ export default {
 		},
 
 		updateConnectionStatus (e) {
-			console.log(e);
 			this.connection = _navigator.connection || initConnection;
 			this.$notify.info({
-				title: '提示',
-          		message: '当前网络：' + (e ? e.currentTarget.type : this.connection.type || 'unknown')
+                title: '提示',
+                message: '当前网络：' + (e ? e.currentTarget.type : (this.connection.type || 'unknown'))
 			});
 		}
 	},
@@ -128,16 +124,16 @@ export default {
 		text-align: center;
 	}
 	.connection-wrapper .info-bg {
-		border-radius: 4px;
-		font-size: 14px;
-    	height: 36px;
-    	line-height: 36px;
-		background-color: #99a9bf;
-		color: #fff;
+        border-radius: 4px;
+        font-size: 14px;
+        height: 36px;
+        line-height: 36px;
+        background-color: #99a9bf;
+        color: #fff;
 	}
 	.connection-wrapper .btn {
 		margin-top: 10px;
-	}
+	}rgb(92, 98, 107)
 	.connection-wrapper .linestatus {
 		padding: 40px 0;
 	}
