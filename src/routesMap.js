@@ -18,5 +18,10 @@ export default [
         path: '/audioContext',
         title: '音频',
         component: () => import('./components/audioContext/Index')
+    },
+    {
+        path: '/connection',
+        title: '网络连接',
+        component: () => import('./components/connection/Index')
     }
 ];

@@ -66,6 +66,7 @@ export default {
                 line-height: 32px;
                 border-left: 4px solid transparent;
                 cursor: pointer;
+                transition: all .1s ease-in-out;
 
                 &:hover {
                     color: #3eaf7c;
