@@ -1,5 +1,9 @@
 export default [
     {
+        path: '/',
+        component: () => import('./components/Index')
+    },
+    {
         path: '/speech-synthesis',
         title: '语音合成',
         component: () => import('./components/speech-synthesis/Index')

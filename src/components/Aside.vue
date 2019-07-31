@@ -18,7 +18,7 @@ export default {
     data () {
         return {
             open: false,
-            menus
+            menus: menus.filter(item => {return item.title})
         }
     },
 
@@ -58,7 +58,7 @@ export default {
             }
         }
         .aside-menus {
-            padding: 10px 0;
+            padding: 20px 0;
 
             li {
                 padding: 0 10px;
