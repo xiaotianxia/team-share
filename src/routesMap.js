@@ -1,6 +1,6 @@
 export default [
     {
-        path: '/',
+        path: '*',
         component: () => import('./components/Index')
     },
     {
