@@ -14,7 +14,7 @@
                             <div class="video">拍段视频吧</div>
                         </li>
 
-                        <li v-for="(item, index) in chunkList" :key="index" class="msg">
+                        <li v-for="(item, index) in chunkList" :key="item._t" class="msg">
                             <div class="avatar"></div>
                             <div class="video" @click="onPlay(index)" @touchend.prevent="onPlay(index)">
                                 <img alt="截图" :src="item.poster">
@@ -116,7 +116,7 @@ export default {
         saveRecordingData  () {
             let blob = new Blob(this.chunks, { 'type' : 'video/webm' }),
                 videoStream = URL.createObjectURL(blob);
-            this.chunkList.push({stream: videoStream});
+            this.chunkList.push({stream: videoStream, _t: +new Date()});
 
             this.onCapture(this.index); 
 

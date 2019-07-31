@@ -14,7 +14,7 @@
                             <div class="audio">说话</div>
                         </li>
 
-                        <li v-for="(item, index) in chunkList" :key="item" class="msg" @click="onPlay(index)" @touchend.prevent="onPlay(index)">
+                        <li v-for="(item, index) in chunkList" :key="item._t" class="msg" @click="onPlay(index)" @touchend.prevent="onPlay(index)">
                             <div class="avatar"></div>
                             <div class="audio" :style="{width: 20 * item.duration + 'px'}" :class="{wink: item.wink}">
                                 <span>(</span><span>(</span><span>(</span>
@@ -113,10 +113,8 @@ export default {
             if(duration > 60) {
                 duration = 60;
             }
-            this.chunkList.push({duration: duration, stream: audioStream});
-
+            this.chunkList.push({duration: duration, stream: audioStream, _t: +new Date()});
             this.msgList.scrollBy && this.msgList.scrollBy({ top: 200, left: 0, behavior: 'smooth' });
-
             this.chunks = [];
         }
     },
