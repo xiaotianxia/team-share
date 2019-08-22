@@ -1,12 +1,12 @@
 <template>
     <div>
-        <demo1/>
+        <demo1 v-if="n == 1"/>
         <div style="height:20px;"></div>
-        <demo2/>
+        <demo2 v-if="n == 2"/>
         <div style="height:20px;"></div>
-        <demo4/>
+        <demo4 v-if="n == 4"/>
         <div style="height:20px;"></div>
-        <demo6/>
+        <demo6 v-if="n == 6"/>
     </div>
 </template>
 
@@ -17,6 +17,12 @@ import Demo4 from './components/Demo4';
 import Demo6 from './components/Demo6';
 
 export default {
+    data () {
+        return {
+            n: this.$route.query.n
+        }
+    },
+
     components: {
         Demo1,
         Demo2,
