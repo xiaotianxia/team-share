@@ -1,12 +1,12 @@
 <template>
     <div>
-        <demo1 v-if="n == 1"/>
+        <demo1 v-if="n == 1 || !n"/>
         <div style="height:20px;"></div>
-        <demo2 v-if="n == 2"/>
+        <demo2 v-if="n == 2 || !n"/>
         <div style="height:20px;"></div>
-        <demo4 v-if="n == 4"/>
+        <demo4 v-if="n == 4 || !n"/>
         <div style="height:20px;"></div>
-        <demo6 v-if="n == 6"/>
+        <demo6 v-if="n == 6 || !n"/>
     </div>
 </template>
 
