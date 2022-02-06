@@ -1,7 +1,7 @@
 <template>
     <div class="aside" :class="{open: open}">
         <div class="aside-button" @click="onOpen">
-            <i :class="open ? 'el-icon-s-fold' : 'el-icon-s-unfold'"></i>
+            <i :class="open ? 'el-icon-s-fold' : 'el-icon-s-unfold'" :title="open ? '收起' : '展开'"></i>
         </div>
         <div class="aside-menus">
             <ul>
@@ -52,6 +52,10 @@ export default {
             right: 0;
             font-size: 22px;
             cursor: pointer;
+
+            &:hover {
+                opacity: .8;
+            }
 
             i {
                 color: rgba(0, 0, 0, .5);

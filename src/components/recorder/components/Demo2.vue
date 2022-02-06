@@ -49,7 +49,7 @@ export default {
                 this.stream = stream;
                 this.bindEvents();
             }, error => {
-                alert('出错，请确保已允许浏览器获取音视频权限');
+                alert(error.message || '出错，请确保已允许浏览器获取音视频权限');
             });
         },
 
