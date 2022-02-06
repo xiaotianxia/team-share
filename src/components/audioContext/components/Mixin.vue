@@ -22,7 +22,7 @@ export default {
         },
 
         initAudioContext () {
-            if (!AudioContext && !webkitAudioContext) {
+            if (!window.AudioContext && !window.webkitAudioContext) {
                 alert('您的浏览器不支持audioContext!');
                 return;
             }

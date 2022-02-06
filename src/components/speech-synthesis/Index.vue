@@ -46,7 +46,7 @@ export default {
                 volume: 1,
                 pitch: 1,
                 rate: 1,
-                text: '大家好，这里是阿里巴巴，创新业务事业群，智能营销平台。'
+                text: '大家好，这里是阿里巴巴-飞猪技术部-用户技术-酒店&平台通用前端组。'
             },
 
             speechInstance: null,

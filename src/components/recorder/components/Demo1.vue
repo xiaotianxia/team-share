@@ -46,7 +46,7 @@ export default {
                 this.recorder = new window.MediaRecorder(stream);
                 this.bindEvents();
             }, error => {
-                alert('出错，请确保已允许浏览器获取录音权限', error);
+                alert(error.message || '出错，请确保已允许浏览器获取录音权限', error);
             });
         },
 
